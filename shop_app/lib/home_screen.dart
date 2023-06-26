@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components_search.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/models/category.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -45,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                       fontWeight: FontWeight.w500, color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text('best outfit for you',
@@ -56,12 +57,61 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(defaultPadding),
+          const Padding(
+            padding: EdgeInsets.all(defaultPadding),
             child: searchForm(),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                demo_categories.length,
+                (index) => CategoryCard(
+                  icon: demo_categories[index].icon,
+                  title: demo_categories[index].title,
+                ),
+              ),
+            ),
           ),
         ],
       ),
     );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
+
+  final String icon, title;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+        onPressed: () {},
+        style: OutlinedButton.styleFrom(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(defaultBorderRadius),
+            ),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: defaultPadding / 4, vertical: defaultPadding / 2),
+          child: Column(
+            children: [
+              Image.asset(icon),
+              const SizedBox(height: defaultPadding / 2),
+              Text(title)
+            ],
+          ),
+        ));
   }
 }
