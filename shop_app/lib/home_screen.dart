@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components_search.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/models/category.dart';
+import 'package:shop_app/section_title.dart';
 
-import 'models/categories.dart';
+import 'categories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black12,
         elevation: 0,
         title: Text(
           'hello',
@@ -36,11 +37,11 @@ class HomeScreen extends StatelessWidget {
               ))
         ],
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(defaultPadding),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(defaultPadding),
+        child: ListView(
+          children: [
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -58,27 +59,42 @@ class HomeScreen extends StatelessWidget {
                         .copyWith(color: Colors.black)),
               ],
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(defaultPadding),
-            child: searchForm(),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(
-                demoCategories.length,
-                (index) => CategoryCard(
-                  icon: demoCategories[index].icon,
-                  title: demoCategories[index].title,
+            const SizedBox(
+              height: 30,
+            ),
+            const searchForm(),
+            const SizedBox(
+              height: 26,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  demoCategories.length,
+                  (index) => CategoryCard(
+                    icon: demoCategories[index].icon,
+                    title: demoCategories[index].title,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 15,
+            ),
+            const SectionTitle(
+              title: "New Arrival",
+            ),
+            Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/image5.png"))),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

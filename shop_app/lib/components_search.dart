@@ -31,7 +31,7 @@ class searchForm extends StatelessWidget {
                   backgroundColor: Colors.purple[300],
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10))),
-              child: Center(
+              child: const Center(
                 child: Icon(Icons.settings),
               )),
         ),
