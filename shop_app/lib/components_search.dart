@@ -22,13 +22,18 @@ class searchForm extends StatelessWidget {
           color: Colors.black,
         ),
         hintText: "search your choice",
-        suffixIcon: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              primary: Colors.purple[300],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10))),
-          child: Icon(Icons.settings),
+        suffixIcon: SizedBox(
+          height: 48,
+          width: 55,
+          child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple[300],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))),
+              child: Center(
+                child: Icon(Icons.settings),
+              )),
         ),
       ),
     ));

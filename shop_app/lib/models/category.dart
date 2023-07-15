@@ -1,5 +1,6 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
-import 'package:shop_app/home_screen.dart';
 
 class Category {
   final String icon;
@@ -11,21 +12,25 @@ class Category {
   });
 }
 
-List<Category> demo_categories = [
+List<Category> demoCategories = [
   Category(
-    icon: "assets/icon/image8.png",
+    icon: "assets/images/bshirt.png",
     title: "shirt",
   ),
   Category(
-    icon: "asstes/icon/images6.png",
-    title: "dress",
+    icon: "assets/images/gskert.png",
+    title: "skirt",
   ),
   Category(
-    icon: "assets/icon/image/9.png",
+    icon: "assets/images/pant.png",
+    title: "pant",
+  ),
+  Category(
+    icon: "assets/images/rskirt.png",
     title: "frock",
   ),
   Category(
-    icon: "assets/icon/image/9.png",
-    title: "coat",
-  )
+    icon: "assets/images/shirt.png",
+    title: "shirt",
+  ),
 ];
